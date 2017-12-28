@@ -95,7 +95,8 @@ do
             result=$(echo "$Num*86400" | bc)
             ;;
         *)
-         echo "Unable to process line $str";
+         echo "Unable to process line $str"
+	 continue
          ;;
     esac
     if [[ "$result" =~ ^(\.) ]]; then 
