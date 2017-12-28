@@ -50,8 +50,8 @@ fi
 for str in $(cat "$file") 
 do
     leftPart=$(echo "$str" | cut -d= -f1)
-    rightPart=$(echo "$str" | cut -d= -f2)
-    Num=$(echo $rightPart | grep -Po '(\d+)[a-zA-Z]+')
+    rightPart=$(echo "$str" | cut -d= -f2 |grep -Po '(\d+)[a-zA-Z]+')
+    Num=$(echo $rightPart | grep -Po '\d+')
     size=$(echo $rightPart | grep -Po [a-zA-Z]+)
     result=$""
     case "$size" in
