@@ -15,7 +15,7 @@ fi
 while [ $# != 0 ]; do
     case "$1" in
         -f|--file)
-            if ! [ -z "$2" ]; then  #
+            if [[ ! -z "$2" & -f "$2"]]; then  #
                 file="$2"
             else
                 echo "Not file"
