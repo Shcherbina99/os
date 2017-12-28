@@ -47,10 +47,11 @@ else
     done
 fi
 
-for str in $(cat "$file") 
+IFS=$'\n'
+for str in `cat $file`
 do
     leftPart=$(echo "$str" | cut -d= -f1)
-    rightPart=$(echo "$str" | cut -d= -f2 |grep -Po '(\d+) *[a-zA-Z]+')
+    rightPart=$(echo "$str" | cut -d= -f2 | grep -Po ' *(\d+) *[a-zA-Z]+')
     Num=$(echo $rightPart | grep -Po '\d+')
     size=$(echo $rightPart | grep -Po [a-zA-Z]+)
     result=$""
